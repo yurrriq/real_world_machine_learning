@@ -1,0 +1,4 @@
+[submodule "code"]
+	path = code
+	url = git@github.com:brinkar/real-world-machine-learning.git
+	branch = master
