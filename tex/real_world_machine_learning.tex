@@ -1,0 +1,183 @@
+% -*- ess-noweb-default-code-mode: python-mode; -*-% ===> this file was generated automatically by noweave --- better not edit it
+\documentclass[nobib]{tufte-handout}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[american]{babel}
+
+\usepackage{blindtext}
+
+\usepackage[style=alphabetic,backend=biber]{biblatex}
+
+\usepackage{csquotes}
+
+\addbibresource{real_world_machine_learning.bib}
+
+\usepackage{noweb}
+
+\usepackage{color}
+% https://commons.wikimedia.org/wiki/File:Erlang_logo.svg
+\definecolor{ErlangRed}{HTML}{A90533}
+
+\usepackage{hyperref}
+\hypersetup{
+  bookmarks=true,
+  pdffitwindow=true,
+  pdfstartview={FitH},
+  pdftitle={Real-World Machine Learning}
+  pdfauthor={Eric Bailey <eric@ericb.me>},
+  % pdfsubject={},
+  pdfkeywords={machine learning, python},
+  colorlinks=true,
+  linkcolor=ErlangRed,
+  urlcolor=ErlangRed
+}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[outputdir=tex]{minted}
+
+% NOTE: Use Tufte instead of noweb page style.
+% \pagestyle{noweb}
+% NOTE: Use shift option for wide code.
+% \noweboptions{smallcode,shortxref,webnumbering,english}
+ \noweboptions{shift,smallcode,shortxref,webnumbering,english,noidentxref}
+
+\title{
+  Real-World Machine Learning
+  \thanks{\url{https://www.manning.com/books/real-world-machine-learning}}
+}
+
+\author{Eric Bailey}
+
+% \date{May 18, 2017}
+
+% \newcommand{\stylehook}{\marginpar{\raggedright\sl style hook}}
+
+\usepackage{todonotes}
+
+\newmintinline[py]{python}{}
+
+\usepackage{tikz}
+\usetikzlibrary{cd}
+
+% \newcommand{\fnhref}[2]{%
+%   \href{#1}{#2}\footnote{\url{#1}}%
+% }
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  \todo[inline]{\blindtext}
+\end{abstract}
+
+% \tableofcontents
+% \newpage
+
+\section{Chapter 2: Real-world data}
+
+\nwfilename{real_world_machine_learning.nw}\nwbegincode{1}\sublabel{NW1QSC6F-2uGgwe-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-2uGgwe-1}}}\moddef{ch2.py~{\nwtagstyle{}\subpageref{NW1QSC6F-2uGgwe-1}}}\endmoddef\nwstartdeflinemarkup\nwenddeflinemarkup
+\LA{}Chapter 2 imports~{\nwtagstyle{}\subpageref{NW1QSC6F-4ZpoFr-1}}\RA{}
+
+\LA{}Categorical feature example~{\nwtagstyle{}\subpageref{NW1QSC6F-1u3Ae3-1}}\RA{}
+
+\LA{}Titanic example~{\nwtagstyle{}\subpageref{NW1QSC6F-1a2VXK-1}}\RA{}
+\nwnotused{ch2.py}\nwendcode{}\nwbegindocs{2}\nwdocspar
+
+\nwenddocs{}\nwbegincode{3}\sublabel{NW1QSC6F-4ZpoFr-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-4ZpoFr-1}}}\moddef{Chapter 2 imports~{\nwtagstyle{}\subpageref{NW1QSC6F-4ZpoFr-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-2uGgwe-1}}\nwenddeflinemarkup
+\nwindexdefn{\nwixident{array}}{array}{NW1QSC6F-4ZpoFr-1}\nwindexdefn{\nwixident{unique}}{unique}{NW1QSC6F-4ZpoFr-1}from numpy import (\nwlinkedidentc{array}{NW1QSC6F-4ZpoFr-1}, \nwlinkedidentc{unique}{NW1QSC6F-4ZpoFr-1})
+\nwused{\\{NW1QSC6F-2uGgwe-1}}\nwidentdefs{\\{{\nwixident{array}}{array}}\\{{\nwixident{unique}}{unique}}}\nwendcode{}\nwbegindocs{4}\nwdocspar
+
+\nwenddocs{}\nwbegincode{5}\sublabel{NW1QSC6F-1u3Ae3-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-1u3Ae3-1}}}\moddef{Categorical feature example~{\nwtagstyle{}\subpageref{NW1QSC6F-1u3Ae3-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-2uGgwe-1}}\nwenddeflinemarkup
+\LA{}Categorical data~{\nwtagstyle{}\subpageref{NW1QSC6F-LNNak-1}}\RA{}
+
+\LA{}Convert a categorical feature to a number~{\nwtagstyle{}\subpageref{NW1QSC6F-4GcJUR-1}}\RA{}
+\nwused{\\{NW1QSC6F-2uGgwe-1}}\nwendcode{}\nwbegindocs{6}\nwdocspar
+
+\nwenddocs{}\nwbegincode{7}\sublabel{NW1QSC6F-LNNak-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-LNNak-1}}}\moddef{Categorical data~{\nwtagstyle{}\subpageref{NW1QSC6F-LNNak-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-1u3Ae3-1}}\nwenddeflinemarkup
+\nwindexdefn{\nwixident{cat{\_}data}}{cat:undata}{NW1QSC6F-LNNak-1}\nwlinkedidentc{cat_data}{NW1QSC6F-LNNak-1} = \nwlinkedidentc{array}{NW1QSC6F-4ZpoFr-1}([
+    'male', 'female', 'male', 'male',
+    'female', 'male', 'female', 'female'
+])
+\nwused{\\{NW1QSC6F-1u3Ae3-1}}\nwidentdefs{\\{{\nwixident{cat{\_}data}}{cat:undata}}}\nwidentuses{\\{{\nwixident{array}}{array}}}\nwindexuse{\nwixident{array}}{array}{NW1QSC6F-LNNak-1}\nwendcode{}\nwbegindocs{8}\nwdocspar
+
+\nwenddocs{}\nwbegincode{9}\sublabel{NW1QSC6F-4GcJUR-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-4GcJUR-1}}}\moddef{Convert a categorical feature to a number~{\nwtagstyle{}\subpageref{NW1QSC6F-4GcJUR-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-1u3Ae3-1}}\nwenddeflinemarkup
+\nwindexdefn{\nwixident{cat{\_}to{\_}num}}{cat:unto:unnum}{NW1QSC6F-4GcJUR-1}def \nwlinkedidentc{cat_to_num}{NW1QSC6F-4GcJUR-1}(data):
+    categories = \nwlinkedidentc{unique}{NW1QSC6F-4ZpoFr-1}(data)
+    features = []
+    for cat in categories:
+        binary = (data == cat)
+        features.append(binary.astype("int"))
+    return features
+\nwused{\\{NW1QSC6F-1u3Ae3-1}}\nwidentdefs{\\{{\nwixident{cat{\_}to{\_}num}}{cat:unto:unnum}}}\nwidentuses{\\{{\nwixident{unique}}{unique}}}\nwindexuse{\nwixident{unique}}{unique}{NW1QSC6F-4GcJUR-1}\nwendcode{}\nwbegindocs{10}\nwdocspar
+
+\subsection{Titanic Example (feature extraction)}
+
+\nwenddocs{}\nwbegincode{11}\sublabel{NW1QSC6F-1a2VXK-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-1a2VXK-1}}}\moddef{Titanic example~{\nwtagstyle{}\subpageref{NW1QSC6F-1a2VXK-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-2uGgwe-1}}\nwenddeflinemarkup
+\LA{}Titanic data~{\nwtagstyle{}\subpageref{NW1QSC6F-4A9935-1}}\RA{}
+
+\LA{}Titanic cabin feature extraction~{\nwtagstyle{}\subpageref{NW1QSC6F-2tUzMM-1}}\RA{}
+\nwused{\\{NW1QSC6F-2uGgwe-1}}\nwendcode{}\nwbegindocs{12}\nwdocspar
+
+\nwenddocs{}\nwbegincode{13}\sublabel{NW1QSC6F-4A9935-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-4A9935-1}}}\moddef{Titanic data~{\nwtagstyle{}\subpageref{NW1QSC6F-4A9935-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-1a2VXK-1}}\nwenddeflinemarkup
+\nwindexdefn{\nwixident{cabin{\_}data}}{cabin:undata}{NW1QSC6F-4A9935-1}\nwlinkedidentc{cabin_data}{NW1QSC6F-4A9935-1} = \nwlinkedidentc{array}{NW1QSC6F-4ZpoFr-1}(["C65", "", "E36", "C54", "B57 B59 B63 B66"])
+\nwused{\\{NW1QSC6F-1a2VXK-1}}\nwidentdefs{\\{{\nwixident{cabin{\_}data}}{cabin:undata}}}\nwidentuses{\\{{\nwixident{array}}{array}}}\nwindexuse{\nwixident{array}}{array}{NW1QSC6F-4A9935-1}\nwendcode{}\nwbegindocs{14}\nwdocspar
+
+\nwenddocs{}\nwbegincode{15}\sublabel{NW1QSC6F-2tUzMM-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-2tUzMM-1}}}\moddef{Titanic cabin feature extraction~{\nwtagstyle{}\subpageref{NW1QSC6F-2tUzMM-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-1a2VXK-1}}\nwenddeflinemarkup
+\nwindexdefn{\nwixident{{\_}cabin{\_}char}}{:uncabin:unchar}{NW1QSC6F-2tUzMM-1}def \nwlinkedidentc{_cabin_char}{NW1QSC6F-2tUzMM-1}(cabins):
+    try:
+        return len(cabins), cabins[0][0]
+    except IndexError:
+        return 0, "X"
+
+\nwindexdefn{\nwixident{{\_}cabin{\_}num}}{:uncabin:unnum}{NW1QSC6F-2tUzMM-1}def \nwlinkedidentc{_cabin_num}{NW1QSC6F-2tUzMM-1}(cabins):
+    try:
+        return int(cabins[0][1:])
+    except:
+        return -1
+
+\nwindexdefn{\nwixident{cabin{\_}features}}{cabin:unfeatures}{NW1QSC6F-2tUzMM-1}def \nwlinkedidentc{cabin_features}{NW1QSC6F-2tUzMM-1}(data):
+    features = []
+    for cabin in data:
+        cabins = cabin.split(" ")
+        n_cabins, cabin_char = \nwlinkedidentc{_cabin_char}{NW1QSC6F-2tUzMM-1}(cabins)
+        cabin_num = \nwlinkedidentc{_cabin_num}{NW1QSC6F-2tUzMM-1}(cabins)
+        features.append([cabin_char, cabin_num, n_cabins])
+    return features
+\nwused{\\{NW1QSC6F-1a2VXK-1}}\nwidentdefs{\\{{\nwixident{{\_}cabin{\_}char}}{:uncabin:unchar}}\\{{\nwixident{{\_}cabin{\_}num}}{:uncabin:unnum}}\\{{\nwixident{cabin{\_}features}}{cabin:unfeatures}}}\nwendcode{}
+
+\nwixlogsorted{c}{{Categorical data}{NW1QSC6F-LNNak-1}{\nwixu{NW1QSC6F-1u3Ae3-1}\nwixd{NW1QSC6F-LNNak-1}}}%
+\nwixlogsorted{c}{{Categorical feature example}{NW1QSC6F-1u3Ae3-1}{\nwixu{NW1QSC6F-2uGgwe-1}\nwixd{NW1QSC6F-1u3Ae3-1}}}%
+\nwixlogsorted{c}{{ch2.py}{NW1QSC6F-2uGgwe-1}{\nwixd{NW1QSC6F-2uGgwe-1}}}%
+\nwixlogsorted{c}{{Chapter 2 imports}{NW1QSC6F-4ZpoFr-1}{\nwixu{NW1QSC6F-2uGgwe-1}\nwixd{NW1QSC6F-4ZpoFr-1}}}%
+\nwixlogsorted{c}{{Convert a categorical feature to a number}{NW1QSC6F-4GcJUR-1}{\nwixu{NW1QSC6F-1u3Ae3-1}\nwixd{NW1QSC6F-4GcJUR-1}}}%
+\nwixlogsorted{c}{{Titanic cabin feature extraction}{NW1QSC6F-2tUzMM-1}{\nwixu{NW1QSC6F-1a2VXK-1}\nwixd{NW1QSC6F-2tUzMM-1}}}%
+\nwixlogsorted{c}{{Titanic data}{NW1QSC6F-4A9935-1}{\nwixu{NW1QSC6F-1a2VXK-1}\nwixd{NW1QSC6F-4A9935-1}}}%
+\nwixlogsorted{c}{{Titanic example}{NW1QSC6F-1a2VXK-1}{\nwixu{NW1QSC6F-2uGgwe-1}\nwixd{NW1QSC6F-1a2VXK-1}}}%
+\nwixlogsorted{i}{{\nwixident{{\_}cabin{\_}char}}{:uncabin:unchar}}%
+\nwixlogsorted{i}{{\nwixident{{\_}cabin{\_}num}}{:uncabin:unnum}}%
+\nwixlogsorted{i}{{\nwixident{array}}{array}}%
+\nwixlogsorted{i}{{\nwixident{cabin{\_}data}}{cabin:undata}}%
+\nwixlogsorted{i}{{\nwixident{cabin{\_}features}}{cabin:unfeatures}}%
+\nwixlogsorted{i}{{\nwixident{cat{\_}data}}{cat:undata}}%
+\nwixlogsorted{i}{{\nwixident{cat{\_}to{\_}num}}{cat:unto:unnum}}%
+\nwixlogsorted{i}{{\nwixident{unique}}{unique}}%
+\nwbegindocs{16}\nwdocspar
+
+\section{Chunks}
+\nowebchunks
+
+\section{Index}
+\nowebindex
+
+\newpage
+
+% \printbibliography
+
+\end{document}
+\nwenddocs{}

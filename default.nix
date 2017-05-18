@@ -7,6 +7,7 @@ let
   pkg = pkgs.callPackage ./release.nix {
     inherit pkgs;
     inherit (pkgs.python35Packages) buildPythonPackage;
+    pythonPackages = pkgs.python35Packages;
   };
 
   env = (pkgs.python35.buildEnv.override {

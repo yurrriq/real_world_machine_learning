@@ -1,0 +1,164 @@
+% -*- ess-noweb-default-code-mode: python-mode; -*-
+\documentclass[nobib]{tufte-handout}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[american]{babel}
+
+\usepackage{blindtext}
+
+\usepackage[style=alphabetic,backend=biber]{biblatex}
+
+\usepackage{csquotes}
+
+\addbibresource{real_world_machine_learning.bib}
+
+\usepackage{noweb}
+
+\usepackage{color}
+% https://commons.wikimedia.org/wiki/File:Erlang_logo.svg
+\definecolor{ErlangRed}{HTML}{A90533}
+
+\usepackage{hyperref}
+\hypersetup{
+  bookmarks=true,
+  pdffitwindow=true,
+  pdfstartview={FitH},
+  pdftitle={Real-World Machine Learning}
+  pdfauthor={Eric Bailey <eric@ericb.me>},
+  % pdfsubject={},
+  pdfkeywords={machine learning, python},
+  colorlinks=true,
+  linkcolor=ErlangRed,
+  urlcolor=ErlangRed
+}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[outputdir=tex]{minted}
+
+% NOTE: Use Tufte instead of noweb page style.
+% \pagestyle{noweb}
+% NOTE: Use shift option for wide code.
+% \noweboptions{smallcode,shortxref,webnumbering,english}
+ \noweboptions{shift,smallcode,shortxref,webnumbering,english,noidentxref}
+
+\title{
+  Real-World Machine Learning
+  \thanks{\url{https://www.manning.com/books/real-world-machine-learning}}
+}
+
+\author{Eric Bailey}
+
+% \date{May 18, 2017}
+
+% \newcommand{\stylehook}{\marginpar{\raggedright\sl style hook}}
+
+\usepackage{todonotes}
+
+\newmintinline[py]{python}{}
+
+\usepackage{tikz}
+\usetikzlibrary{cd}
+
+% \newcommand{\fnhref}[2]{%
+%   \href{#1}{#2}\footnote{\url{#1}}%
+% }
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  \todo[inline]{\blindtext}
+\end{abstract}
+
+% \tableofcontents
+% \newpage
+
+\section{Chapter 2: Real-world data}
+
+<<ch2.py>>=
+<<Chapter 2 imports>>
+
+<<Categorical feature example>>
+
+<<Titanic example>>
+@
+
+<<Chapter 2 imports>>=
+from numpy import (`array, `unique)
+@
+
+<<Categorical feature example>>=
+<<Categorical data>>
+
+<<Convert a categorical feature to a number>>
+@
+
+<<Categorical data>>=
+`cat_data = array([
+    'male', 'female', 'male', 'male',
+    'female', 'male', 'female', 'female'
+])
+@
+
+<<Convert a categorical feature to a number>>=
+def `cat_to_num(data):
+    categories = unique(data)
+    features = []
+    for cat in categories:
+        binary = (data == cat)
+        features.append(binary.astype("int"))
+    return features
+@
+
+\subsection{Titanic Example (feature extraction)}
+
+<<Titanic example>>=
+<<Titanic data>>
+
+<<Titanic cabin feature extraction>>
+@
+
+<<Titanic data>>=
+`cabin_data = array(["C65", "", "E36", "C54", "B57 B59 B63 B66"])
+@
+
+<<Titanic cabin feature extraction>>=
+def `_cabin_char(cabins):
+    try:
+        return len(cabins), cabins[0][0]
+    except IndexError:
+        return 0, "X"
+
+def `_cabin_num(cabins):
+    try:
+        return int(cabins[0][1:])
+    except:
+        return -1
+
+def `cabin_features(data):
+    features = []
+    for cabin in data:
+        cabins = cabin.split(" ")
+        n_cabins, cabin_char = _cabin_char(cabins)
+        cabin_num = _cabin_num(cabins)
+        features.append([cabin_char, cabin_num, n_cabins])
+    return features
+@
+
+\section{Chunks}
+\nowebchunks
+
+\section{Index}
+\nowebindex
+
+\newpage
+
+% \printbibliography
+
+\end{document}
