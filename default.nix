@@ -4,7 +4,7 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  pkg = pkgs.callPackage ./release.nix {
+  pkg = pkgs.callPackage ./src/python {
     inherit pkgs;
     inherit (pkgs.python35Packages) buildPythonPackage;
     pythonPackages = pkgs.python35Packages;

@@ -11,7 +11,7 @@ setup(
     author_email = 'eric@ericb.me',
     description = 'Real-World Machine Learning',
 
-    license = 'BSD',
+    license = 'MIT',
     url = 'https://github.com/yurrriq/real_world_machine_learning',
     packages = ['real_world_machine_learning'],
 )

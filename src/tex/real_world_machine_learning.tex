@@ -38,7 +38,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 
-\usepackage[outputdir=tex]{minted}
+\usepackage[outputdir=src/tex]{minted}
 
 % NOTE: Use Tufte instead of noweb page style.
 % \pagestyle{noweb}
@@ -79,34 +79,61 @@
 % \tableofcontents
 % \newpage
 
+\section{Project Setup}
+
+\nwfilename{real_world_machine_learning.nw}\nwbegincode{1}\sublabel{NW1QSC6F-4UJRDy-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-4UJRDy-1}}}\moddef{setup.py~{\nwtagstyle{}\subpageref{NW1QSC6F-4UJRDy-1}}}\endmoddef\nwstartdeflinemarkup\nwenddeflinemarkup
+\nwindexdefn{\nwixident{os}}{os}{NW1QSC6F-4UJRDy-1}import \nwlinkedidentc{os}{NW1QSC6F-4UJRDy-1}
+\nwindexdefn{\nwixident{setup}}{setup}{NW1QSC6F-4UJRDy-1}from distutils.core import \nwlinkedidentc{setup}{NW1QSC6F-4UJRDy-1}
+
+\LA{}Helper function to file contents to a string~{\nwtagstyle{}\subpageref{NW1QSC6F-4YwpJR-1}}\RA{}
+
+\nwlinkedidentc{setup}{NW1QSC6F-4UJRDy-1}(
+    name = 'real_world_machine_learning',
+    version = \nwlinkedidentc{read}{NW1QSC6F-4YwpJR-1}('VERSION'),
+    author = 'Eric Bailey',
+    author_email = 'eric@ericb.me',
+    description = 'Real-World Machine Learning',
+
+    license = 'MIT',
+    url = 'https://github.com/yurrriq/real_world_machine_learning',
+    packages = ['real_world_machine_learning'],
+)
+\nwnotused{setup.py}\nwidentdefs{\\{{\nwixident{os}}{os}}\\{{\nwixident{setup}}{setup}}}\nwidentuses{\\{{\nwixident{read}}{read}}}\nwindexuse{\nwixident{read}}{read}{NW1QSC6F-4UJRDy-1}\nwendcode{}\nwbegindocs{2}\nwdocspar
+
+\todo{Describe this briefly and mention the reasoning behind \texttt{VERSION}.}
+\nwenddocs{}\nwbegincode{3}\sublabel{NW1QSC6F-4YwpJR-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-4YwpJR-1}}}\moddef{Helper function to file contents to a string~{\nwtagstyle{}\subpageref{NW1QSC6F-4YwpJR-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-4UJRDy-1}}\nwenddeflinemarkup
+\nwindexdefn{\nwixident{read}}{read}{NW1QSC6F-4YwpJR-1}def \nwlinkedidentc{read}{NW1QSC6F-4YwpJR-1}(fname):
+    return open(\nwlinkedidentc{os}{NW1QSC6F-4UJRDy-1}.path.join(\nwlinkedidentc{os}{NW1QSC6F-4UJRDy-1}.path.dirname(__file__), fname)).\nwlinkedidentc{read}{NW1QSC6F-4YwpJR-1}()
+\nwused{\\{NW1QSC6F-4UJRDy-1}}\nwidentdefs{\\{{\nwixident{read}}{read}}}\nwidentuses{\\{{\nwixident{os}}{os}}}\nwindexuse{\nwixident{os}}{os}{NW1QSC6F-4YwpJR-1}\nwendcode{}\nwbegindocs{4}\nwdocspar
+
 \section{Chapter 2: Real-world data}
 
-\nwfilename{real_world_machine_learning.nw}\nwbegincode{1}\sublabel{NW1QSC6F-2uGgwe-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-2uGgwe-1}}}\moddef{ch2.py~{\nwtagstyle{}\subpageref{NW1QSC6F-2uGgwe-1}}}\endmoddef\nwstartdeflinemarkup\nwenddeflinemarkup
+\nwenddocs{}\nwbegincode{5}\sublabel{NW1QSC6F-2uGgwe-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-2uGgwe-1}}}\moddef{ch2.py~{\nwtagstyle{}\subpageref{NW1QSC6F-2uGgwe-1}}}\endmoddef\nwstartdeflinemarkup\nwenddeflinemarkup
 \LA{}Chapter 2 imports~{\nwtagstyle{}\subpageref{NW1QSC6F-4ZpoFr-1}}\RA{}
 
 \LA{}Categorical feature example~{\nwtagstyle{}\subpageref{NW1QSC6F-1u3Ae3-1}}\RA{}
 
 \LA{}Titanic example~{\nwtagstyle{}\subpageref{NW1QSC6F-1a2VXK-1}}\RA{}
-\nwnotused{ch2.py}\nwendcode{}\nwbegindocs{2}\nwdocspar
+\nwnotused{ch2.py}\nwendcode{}\nwbegindocs{6}\nwdocspar
 
-\nwenddocs{}\nwbegincode{3}\sublabel{NW1QSC6F-4ZpoFr-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-4ZpoFr-1}}}\moddef{Chapter 2 imports~{\nwtagstyle{}\subpageref{NW1QSC6F-4ZpoFr-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-2uGgwe-1}}\nwenddeflinemarkup
+\nwenddocs{}\nwbegincode{7}\sublabel{NW1QSC6F-4ZpoFr-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-4ZpoFr-1}}}\moddef{Chapter 2 imports~{\nwtagstyle{}\subpageref{NW1QSC6F-4ZpoFr-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-2uGgwe-1}}\nwenddeflinemarkup
 \nwindexdefn{\nwixident{array}}{array}{NW1QSC6F-4ZpoFr-1}\nwindexdefn{\nwixident{unique}}{unique}{NW1QSC6F-4ZpoFr-1}from numpy import (\nwlinkedidentc{array}{NW1QSC6F-4ZpoFr-1}, \nwlinkedidentc{unique}{NW1QSC6F-4ZpoFr-1})
-\nwused{\\{NW1QSC6F-2uGgwe-1}}\nwidentdefs{\\{{\nwixident{array}}{array}}\\{{\nwixident{unique}}{unique}}}\nwendcode{}\nwbegindocs{4}\nwdocspar
+\nwused{\\{NW1QSC6F-2uGgwe-1}}\nwidentdefs{\\{{\nwixident{array}}{array}}\\{{\nwixident{unique}}{unique}}}\nwendcode{}\nwbegindocs{8}\nwdocspar
 
-\nwenddocs{}\nwbegincode{5}\sublabel{NW1QSC6F-1u3Ae3-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-1u3Ae3-1}}}\moddef{Categorical feature example~{\nwtagstyle{}\subpageref{NW1QSC6F-1u3Ae3-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-2uGgwe-1}}\nwenddeflinemarkup
+\nwenddocs{}\nwbegincode{9}\sublabel{NW1QSC6F-1u3Ae3-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-1u3Ae3-1}}}\moddef{Categorical feature example~{\nwtagstyle{}\subpageref{NW1QSC6F-1u3Ae3-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-2uGgwe-1}}\nwenddeflinemarkup
 \LA{}Categorical data~{\nwtagstyle{}\subpageref{NW1QSC6F-LNNak-1}}\RA{}
 
 \LA{}Convert a categorical feature to a number~{\nwtagstyle{}\subpageref{NW1QSC6F-4GcJUR-1}}\RA{}
-\nwused{\\{NW1QSC6F-2uGgwe-1}}\nwendcode{}\nwbegindocs{6}\nwdocspar
+\nwused{\\{NW1QSC6F-2uGgwe-1}}\nwendcode{}\nwbegindocs{10}\nwdocspar
 
-\nwenddocs{}\nwbegincode{7}\sublabel{NW1QSC6F-LNNak-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-LNNak-1}}}\moddef{Categorical data~{\nwtagstyle{}\subpageref{NW1QSC6F-LNNak-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-1u3Ae3-1}}\nwenddeflinemarkup
+\nwenddocs{}\nwbegincode{11}\sublabel{NW1QSC6F-LNNak-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-LNNak-1}}}\moddef{Categorical data~{\nwtagstyle{}\subpageref{NW1QSC6F-LNNak-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-1u3Ae3-1}}\nwenddeflinemarkup
 \nwindexdefn{\nwixident{cat{\_}data}}{cat:undata}{NW1QSC6F-LNNak-1}\nwlinkedidentc{cat_data}{NW1QSC6F-LNNak-1} = \nwlinkedidentc{array}{NW1QSC6F-4ZpoFr-1}([
     'male', 'female', 'male', 'male',
     'female', 'male', 'female', 'female'
 ])
-\nwused{\\{NW1QSC6F-1u3Ae3-1}}\nwidentdefs{\\{{\nwixident{cat{\_}data}}{cat:undata}}}\nwidentuses{\\{{\nwixident{array}}{array}}}\nwindexuse{\nwixident{array}}{array}{NW1QSC6F-LNNak-1}\nwendcode{}\nwbegindocs{8}\nwdocspar
+\nwused{\\{NW1QSC6F-1u3Ae3-1}}\nwidentdefs{\\{{\nwixident{cat{\_}data}}{cat:undata}}}\nwidentuses{\\{{\nwixident{array}}{array}}}\nwindexuse{\nwixident{array}}{array}{NW1QSC6F-LNNak-1}\nwendcode{}\nwbegindocs{12}\nwdocspar
 
-\nwenddocs{}\nwbegincode{9}\sublabel{NW1QSC6F-4GcJUR-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-4GcJUR-1}}}\moddef{Convert a categorical feature to a number~{\nwtagstyle{}\subpageref{NW1QSC6F-4GcJUR-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-1u3Ae3-1}}\nwenddeflinemarkup
+\nwenddocs{}\nwbegincode{13}\sublabel{NW1QSC6F-4GcJUR-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-4GcJUR-1}}}\moddef{Convert a categorical feature to a number~{\nwtagstyle{}\subpageref{NW1QSC6F-4GcJUR-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-1u3Ae3-1}}\nwenddeflinemarkup
 \nwindexdefn{\nwixident{cat{\_}to{\_}num}}{cat:unto:unnum}{NW1QSC6F-4GcJUR-1}def \nwlinkedidentc{cat_to_num}{NW1QSC6F-4GcJUR-1}(data):
     categories = \nwlinkedidentc{unique}{NW1QSC6F-4ZpoFr-1}(data)
     features = []
@@ -114,21 +141,22 @@
         binary = (data == cat)
         features.append(binary.astype("int"))
     return features
-\nwused{\\{NW1QSC6F-1u3Ae3-1}}\nwidentdefs{\\{{\nwixident{cat{\_}to{\_}num}}{cat:unto:unnum}}}\nwidentuses{\\{{\nwixident{unique}}{unique}}}\nwindexuse{\nwixident{unique}}{unique}{NW1QSC6F-4GcJUR-1}\nwendcode{}\nwbegindocs{10}\nwdocspar
+\nwused{\\{NW1QSC6F-1u3Ae3-1}}\nwidentdefs{\\{{\nwixident{cat{\_}to{\_}num}}{cat:unto:unnum}}}\nwidentuses{\\{{\nwixident{unique}}{unique}}}\nwindexuse{\nwixident{unique}}{unique}{NW1QSC6F-4GcJUR-1}\nwendcode{}\nwbegindocs{14}\nwdocspar
 
 \subsection{Titanic Example (feature extraction)}
 
-\nwenddocs{}\nwbegincode{11}\sublabel{NW1QSC6F-1a2VXK-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-1a2VXK-1}}}\moddef{Titanic example~{\nwtagstyle{}\subpageref{NW1QSC6F-1a2VXK-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-2uGgwe-1}}\nwenddeflinemarkup
+\nwenddocs{}\nwbegincode{15}\sublabel{NW1QSC6F-1a2VXK-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-1a2VXK-1}}}\moddef{Titanic example~{\nwtagstyle{}\subpageref{NW1QSC6F-1a2VXK-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-2uGgwe-1}}\nwenddeflinemarkup
 \LA{}Titanic data~{\nwtagstyle{}\subpageref{NW1QSC6F-4A9935-1}}\RA{}
 
 \LA{}Titanic cabin feature extraction~{\nwtagstyle{}\subpageref{NW1QSC6F-2tUzMM-1}}\RA{}
-\nwused{\\{NW1QSC6F-2uGgwe-1}}\nwendcode{}\nwbegindocs{12}\nwdocspar
+\nwused{\\{NW1QSC6F-2uGgwe-1}}\nwendcode{}\nwbegindocs{16}\nwdocspar
 
-\nwenddocs{}\nwbegincode{13}\sublabel{NW1QSC6F-4A9935-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-4A9935-1}}}\moddef{Titanic data~{\nwtagstyle{}\subpageref{NW1QSC6F-4A9935-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-1a2VXK-1}}\nwenddeflinemarkup
+\todo[inline]{Import from code/data/titanic.csv}
+\nwenddocs{}\nwbegincode{17}\sublabel{NW1QSC6F-4A9935-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-4A9935-1}}}\moddef{Titanic data~{\nwtagstyle{}\subpageref{NW1QSC6F-4A9935-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-1a2VXK-1}}\nwenddeflinemarkup
 \nwindexdefn{\nwixident{cabin{\_}data}}{cabin:undata}{NW1QSC6F-4A9935-1}\nwlinkedidentc{cabin_data}{NW1QSC6F-4A9935-1} = \nwlinkedidentc{array}{NW1QSC6F-4ZpoFr-1}(["C65", "", "E36", "C54", "B57 B59 B63 B66"])
-\nwused{\\{NW1QSC6F-1a2VXK-1}}\nwidentdefs{\\{{\nwixident{cabin{\_}data}}{cabin:undata}}}\nwidentuses{\\{{\nwixident{array}}{array}}}\nwindexuse{\nwixident{array}}{array}{NW1QSC6F-4A9935-1}\nwendcode{}\nwbegindocs{14}\nwdocspar
+\nwused{\\{NW1QSC6F-1a2VXK-1}}\nwidentdefs{\\{{\nwixident{cabin{\_}data}}{cabin:undata}}}\nwidentuses{\\{{\nwixident{array}}{array}}}\nwindexuse{\nwixident{array}}{array}{NW1QSC6F-4A9935-1}\nwendcode{}\nwbegindocs{18}\nwdocspar
 
-\nwenddocs{}\nwbegincode{15}\sublabel{NW1QSC6F-2tUzMM-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-2tUzMM-1}}}\moddef{Titanic cabin feature extraction~{\nwtagstyle{}\subpageref{NW1QSC6F-2tUzMM-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-1a2VXK-1}}\nwenddeflinemarkup
+\nwenddocs{}\nwbegincode{19}\sublabel{NW1QSC6F-2tUzMM-1}\nwmargintag{{\nwtagstyle{}\subpageref{NW1QSC6F-2tUzMM-1}}}\moddef{Titanic cabin feature extraction~{\nwtagstyle{}\subpageref{NW1QSC6F-2tUzMM-1}}}\endmoddef\nwstartdeflinemarkup\nwusesondefline{\\{NW1QSC6F-1a2VXK-1}}\nwenddeflinemarkup
 \nwindexdefn{\nwixident{{\_}cabin{\_}char}}{:uncabin:unchar}{NW1QSC6F-2tUzMM-1}def \nwlinkedidentc{_cabin_char}{NW1QSC6F-2tUzMM-1}(cabins):
     try:
         return len(cabins), cabins[0][0]
@@ -156,6 +184,8 @@
 \nwixlogsorted{c}{{ch2.py}{NW1QSC6F-2uGgwe-1}{\nwixd{NW1QSC6F-2uGgwe-1}}}%
 \nwixlogsorted{c}{{Chapter 2 imports}{NW1QSC6F-4ZpoFr-1}{\nwixu{NW1QSC6F-2uGgwe-1}\nwixd{NW1QSC6F-4ZpoFr-1}}}%
 \nwixlogsorted{c}{{Convert a categorical feature to a number}{NW1QSC6F-4GcJUR-1}{\nwixu{NW1QSC6F-1u3Ae3-1}\nwixd{NW1QSC6F-4GcJUR-1}}}%
+\nwixlogsorted{c}{{Helper function to file contents to a string}{NW1QSC6F-4YwpJR-1}{\nwixu{NW1QSC6F-4UJRDy-1}\nwixd{NW1QSC6F-4YwpJR-1}}}%
+\nwixlogsorted{c}{{setup.py}{NW1QSC6F-4UJRDy-1}{\nwixd{NW1QSC6F-4UJRDy-1}}}%
 \nwixlogsorted{c}{{Titanic cabin feature extraction}{NW1QSC6F-2tUzMM-1}{\nwixu{NW1QSC6F-1a2VXK-1}\nwixd{NW1QSC6F-2tUzMM-1}}}%
 \nwixlogsorted{c}{{Titanic data}{NW1QSC6F-4A9935-1}{\nwixu{NW1QSC6F-1a2VXK-1}\nwixd{NW1QSC6F-4A9935-1}}}%
 \nwixlogsorted{c}{{Titanic example}{NW1QSC6F-1a2VXK-1}{\nwixu{NW1QSC6F-2uGgwe-1}\nwixd{NW1QSC6F-1a2VXK-1}}}%
@@ -166,8 +196,14 @@
 \nwixlogsorted{i}{{\nwixident{cabin{\_}features}}{cabin:unfeatures}}%
 \nwixlogsorted{i}{{\nwixident{cat{\_}data}}{cat:undata}}%
 \nwixlogsorted{i}{{\nwixident{cat{\_}to{\_}num}}{cat:unto:unnum}}%
+\nwixlogsorted{i}{{\nwixident{os}}{os}}%
+\nwixlogsorted{i}{{\nwixident{read}}{read}}%
+\nwixlogsorted{i}{{\nwixident{setup}}{setup}}%
 \nwixlogsorted{i}{{\nwixident{unique}}{unique}}%
-\nwbegindocs{16}\nwdocspar
+\nwbegindocs{20}\nwdocspar
+
+\subsection{Idris Port}
+\todo{Port the example to Idris}
 
 \section{Chunks}
 \nowebchunks

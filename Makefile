@@ -1,35 +1,33 @@
-noweb_src = real_world_machine_learning.nw
+project := real_world_machine_learning
+prefix  ?= docs
 
-srcs := \
-	ch2.py
+noweb_src    = ${project}.nw
+py_src_dir  := src/python/${project}
+tex_src_dir := src/tex
+py_srcs     := \
+	$(dir ${py_src_dir})setup.py \
+	$(addprefix ${py_src_dir}/,$(addsuffix .py,\
+	ch2 \
+	))
 
-tangle = notangle \
-	-R$@ $< \
-	-filter btdefn \
-	| cpif real_world_machine_learning/$@
-
-weave  = noweave \
-	-n \
-	-filter btdefn \
-	-delay \
-	-index \
-	-latex $< \
-	| cpif $@
-
-.SUFFIXES: .tex .pdf
-.tex.pdf: ; latexmk --shell-escape -pdf -outdir=tex $<
+# dirname = $(patsubst %/,%,$(dir ${1}))
+tangle  = notangle -R$(notdir $@) $< -filter btdefn | cpif $@
+weave   = noweave -n -filter btdefn -delay -index -latex $< | cpif $@
 
 .PHONY: all build
 
-all: build docs/real_world_machine_learning.pdf
+all: build ${prefix}/${project}.pdf
 
-${srcs}: ${noweb_src} ; ${tangle}
+${py_srcs}: ${noweb_src}
+	${tangle}
 
-tex/%.tex: %.nw tex/%.bib ; ${weave}
+${tex_src_dir}/%.tex: %.nw ${tex_src_dir}/%.bib
+	${weave}
 
-docs/%.pdf: tex/%.pdf
-	@ mkdir -p $(dir $@)
-	@ mv $< $@
+${prefix}/%.pdf: ${tex_src_dir}/%.tex
+	latexmk --shell-escape -pdf -outdir=${prefix} $<
+	latexmk -c -outdir=${prefix} $<
+	@ rm -fr ${prefix}/$*.{bbl,run.xml}
 
-build: ${srcs} # default.nix
+build: ${py_srcs} default.nix
 	@ nix-build

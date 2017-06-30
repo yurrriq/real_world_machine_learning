@@ -38,7 +38,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 
-\usepackage[outputdir=tex]{minted}
+\usepackage[outputdir=src/tex]{minted}
 
 % NOTE: Use Tufte instead of noweb page style.
 % \pagestyle{noweb}
@@ -78,6 +78,33 @@
 
 % \tableofcontents
 % \newpage
+
+\section{Project Setup}
+
+<<setup.py>>=
+import `os
+from distutils.core import `setup
+
+<<Helper function to file contents to a string>>
+
+setup(
+    name = 'real_world_machine_learning',
+    version = read('VERSION'),
+    author = 'Eric Bailey',
+    author_email = 'eric@ericb.me',
+    description = 'Real-World Machine Learning',
+
+    license = 'MIT',
+    url = 'https://github.com/yurrriq/real_world_machine_learning',
+    packages = ['real_world_machine_learning'],
+)
+@
+
+\todo{Describe this briefly and mention the reasoning behind \texttt{VERSION}.}
+<<Helper function to file contents to a string>>=
+def `read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+@
 
 \section{Chapter 2: Real-world data}
 
@@ -124,6 +151,7 @@ def `cat_to_num(data):
 <<Titanic cabin feature extraction>>
 @
 
+\todo[inline]{Import from code/data/titanic.csv}
 <<Titanic data>>=
 `cabin_data = array(["C65", "", "E36", "C54", "B57 B59 B63 B66"])
 @
@@ -150,6 +178,9 @@ def `cabin_features(data):
         features.append([cabin_char, cabin_num, n_cabins])
     return features
 @
+
+\subsection{Idris Port}
+\todo{Port the example to Idris}
 
 \section{Chunks}
 \nowebchunks
