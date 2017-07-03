@@ -180,7 +180,128 @@ def `cabin_features(data):
 @
 
 \subsection{Idris Port}
-\todo{Port the example to Idris}
+
+<<Data.ML.Categorical>>=
+-- --------------------------------------------------------- [ Categorical.idr ]
+
+module Data.ML.Categorical
+
+import public Data.ML.Util
+
+%access export
+
+
+catToNum : (Num n, Cast Bool n, Ord a) => List a -> List (List n)
+catToNum xs = [ cast . (== cat) <$> xs | cat <- unique xs ]
+
+-- --------------------------------------------------------------------- [ EOF ]
+@ %def Data.ML.Categorical
+@ %def catToNum
+
+<<Data.ML.Util>>=
+-- ---------------------------------------------------------------- [ Util.idr ]
+
+module Data.ML.Util
+
+%access public export
+
+
+||| Convert a Bool to an Integer, as in C99's <stdbool.h>.
+||| @ bool a Bool to convert
+boolToInteger : (bool : Bool) -> Integer
+boolToInteger False = 0
+boolToInteger True  = 1
+
+
+||| Cast Bools to Integers via `boolToInteger`.
+implementation Cast Bool Integer where
+  cast = boolToInteger
+
+
+||| Simplified clone of `numpy.unique`.
+|||
+||| Return the sorted unique elements of a list.
+|||
+||| ```
+||| unique = sort . nub
+||| ```
+unique : Ord a => List a -> List a
+unique = sort . nub
+
+-- --------------------------------------------------------------------- [ EOF ]
+@ %def Data.ML.Util
+@ %def boolToInteger
+@ %def unique
+
+<<Data.ML.Example>>=
+-- ------------------------------------------------------------- [ Example.idr ]
+
+module Data.ML.Example
+
+import public Data.ML.Categorical
+
+%access public export
+
+
+-- --------------------------------------------- [ Categorical Feature Example ]
+
+namespace Categorical
+
+  exampleData : List String
+  exampleData = [ "male",   "female", "male",   "male"
+                , "female", "male",   "female", "female"
+                ]
+
+
+  ||| ```idris example
+  ||| catToNum Categorical.exampleData
+  ||| ```
+  example : List (List Integer)
+  example = catToNum Categorical.exampleData
+
+
+-- --------------------------------------------------------- [ Titanic Example ]
+
+namespace Titanic
+
+  exampleData : List String
+  exampleData = [ "C65", "", "E36", "C54", "B57 B59 B63 B66" ]
+
+
+  -- TODO: record CabinFeature where
+
+  ||| ```idris example
+  ||| Titanic.example
+  ||| ```
+  example : List (Char, Integer, Nat)
+  example = go . words <$> Titanic.exampleData
+    where
+      go : List String -> (Char, Integer, Nat)
+      go []                                            = ('X', -1, 0)
+      go (cabin :: cabins) with (strM cabin)
+        go (""            :: cabins) | StrNil          = ('X', -1, 0)
+        go (strCons c num :: cabins) | (StrCons c num) =
+           ( c
+           , cast num
+           , S (length cabins)
+           )
+
+-- --------------------------------------------------------------------- [ EOF ]
+@ %def Data.ML.Example
+@ %def Categorical.exampleData
+@ %def Categorical.example
+@ %def Titanic.exampleData
+@ %def Titanic.example
+
+<<ipkg>>=
+package real_world_ml
+
+opts = "--total"
+
+modules = Data.ML.Categorical
+        , Data.ML.Example
+        , Data.ML.Util
+@
 
 \section{Chunks}
 \nowebchunks

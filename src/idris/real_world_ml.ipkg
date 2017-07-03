@@ -1,0 +1,7 @@
+package real_world_ml
+
+opts = "--total"
+
+modules = Data.ML.Categorical
+        , Data.ML.Example
+        , Data.ML.Util
